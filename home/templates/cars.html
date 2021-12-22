@@ -1,0 +1,53 @@
+{% extends "homebase.html" %}
+{% load static %}
+
+{% block title %} Car - {{ categorydata.title }} {% endblock %}
+{% block description %} {{ categorydata.description }}  {% endblock %}
+{% block keywords %}{{ categorydata.keywords }} {% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <!--==============================Content=================================-->
+    {% for rs in cars %}
+        <div class="row">
+            <div class="d-flex justify-content-center container mt-5 col-4">
+                <div class="card p-3 bg-white">
+                    <div class="about-product text-center mt-2">
+                        <a href="{{ rs.id }}/{{ rs.title }}">
+                            <img src="{{ rs.image.url}}" width="300" alt="">
+                        </a>
+                        <div>
+                            <h3>{{ rs.title}}</h3>
+                        </div>
+                    </div>
+                    <div class="stats mt-2">
+                        <div class="d-flex justify-content-between p-price">
+                            <span>Price:</span>
+                            <span>${{ rs.price }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between p-price">
+                            <span >Details:</span>
+                            <span>{{ rs.description }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between p-price">
+                            <span >Car:</span>
+                            <span>
+                            <a href="{{ rs.id }}/{{ rs.title }}">See Now</a>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

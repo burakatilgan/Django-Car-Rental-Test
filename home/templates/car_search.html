@@ -1,0 +1,58 @@
+{% extends "homebase.html" %}
+
+{% block title %} Cars Search Results {% endblock %}
+{% block description %} {{ setting.description }}  {% endblock %}
+{% block keywords %}{{ setting.keywords }} {% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <table cellpadding="3" width="1200">
+                    <tr>
+                        <th>Image</th>
+                        <th>Car Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    {% for rs in cars %}
+                        <tr>
+                            <td>
+                                <a href="/car/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{ rs.image.url }}" height="200" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <h4>
+                                    <a href="/car/{{ rs.id }}/{{ rs.slug }}">
+                                        {{ rs.title }}
+                                    </a>
+                                </h4>
+                            </td>
+                            <td>
+                                <a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">
+                                    {{ rs.category }}
+                                </a>
+                            </td>
+                            <td>${{ rs.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

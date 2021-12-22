@@ -1,0 +1,45 @@
+{% load static %}
+
+<!--==============================Content=================================-->
+<div class="content">
+    <div class="container_12">
+
+        <hr>
+
+        <div class="container_12">
+            <h3> CARS OF THE DAY</h3>
+            {% for rs in daycars %}
+                <div class="grid_4">
+                    <a href="{% url 'car_detail' rs.id rs.slug %}" class="type">
+                        <img height="300px" src="{{ rs.image.url }}" alt="">
+                        <span class="type_caption">{{ rs.title }}</span></a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+
+        <hr>
+        <br>
+<br><br><br><br><br>
+    <div class="container">
+        <div class="grid_4 " style="visibility: hidden"></div>
+    <div class="grid_4 ">
+        <div class="banner">
+            <div class="maxheight">
+                <div class="banner_title">
+                    <img src="{% static 'images/icon2.png' %}" alt="">
+                    <div class="extra_wrapper">Sık Sorulan
+                        <div class="color1">Sorular</div>
+                    </div>
+                </div>
+                Dilediğiniz her ne soru varsa cevabını alacağınız yer.
+                <hr>
+                <a href="/faq" class="fa fa-share-square"></a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="grid_4 "></div>
+</div>
+</div>

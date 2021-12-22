@@ -1,0 +1,50 @@
+{% extends "homebase.html" %}
+
+{% block title %} FAQ {% endblock %}
+{% block description %}   {% endblock %}
+{% block keywords %} {% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+
+
+
+{% block content %}<br><br>
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <table cellpadding="3" width="1200">
+                    <tr>
+                        <th>SORU</th>
+                        <th>CEVAP</th>
+                    </tr>
+                    {% for rs in faq %}
+                        <tr>
+                            <td>
+                                    {{ rs.question }}
+
+                            </td>
+                            <br>
+                            <td>
+                                <h4>
+
+                                        {{ rs.answer }}
+                                    </a>
+                                </h4>
+                            </td>
+                        </tr>
+                        <br><br><br>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

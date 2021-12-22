@@ -1,0 +1,59 @@
+{% extends "homebase.html" %}
+
+{% block title %} İletişim - {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }}  {% endblock %}
+{% block keywords %}{{ setting.keywords }} {% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+    {% load static %}
+    <div class="container_12">
+        <div class="grid_5">
+            <h3>Contact Info</h3>
+            <div class="map">
+                <div class="text1 color2">Lorem ipsum dolor sit amet, consecteturpiscinger elit um dolor sit amet, consecteturpiscing.</div>
+                <p>Don’t forget, 24/7 support is available for TemplateMonster’s <span class="color1"><a href="http://www.templatemonster.com/website-templates.php" rel="nofollow">premium themes</a></span> only. Free ones lack this privilege.</p>
+                <p>Use <span class="color1"><a href="http://www.templatetuning.com/" rel="nofollow">Template Tuning</a></span> services if you need any help in customization of your freebie.</p>
+                <address>
+                    <dl>
+                        <dt>The Company Name Inc. <br>
+                            9870 St Vincent Place,<br>
+                            Glasgow, DC 45 Fr 45.
+                        </dt>
+                        <dd><span>Telephone:</span> +1 800 603 6035</dd>
+                        <dd><span>FAX:</span> +1 800 889 9898</dd>
+                        <dd>E-mail: <a href="#" class="color1">mail@demolink.org</a></dd>
+                    </dl>
+                </address>
+            </div>
+        </div>
+        <div class="grid_5">
+            <div class="section-title">
+                <h3 class="title">İletişim Formu</h3>
+            </div>
+            {% if messages %}
+                {% for messages in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form  method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Send Form">
+            </form>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+
+{% endblock %}

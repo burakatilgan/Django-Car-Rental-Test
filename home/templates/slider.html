@@ -1,0 +1,29 @@
+{% load static %}
+
+
+
+
+<div id="slider">
+    {% for rs in slider %}
+        <a href="#" class="control_next">></a>
+        <a href="#" class="control_prev"><</a>
+        <ul>
+            <li style="background: #aaa;">
+                <a href="{% url 'car_detail' rs.id rs.slug %}">
+                    <img src="{{ rs.image.url }}" alt="">
+                    <span class="type_caption">Şimdi Kirala</span>
+                </a>
+            </li>
+        </ul>
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+

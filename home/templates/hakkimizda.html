@@ -1,0 +1,32 @@
+{% extends "homebase.html" %}
+
+{% block title %} Hakkımızda - {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }}  {% endblock %}
+{% block keywords %}{{ setting.keywords }} {% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ setting.icon.url }}"  type="image/x-icon">
+{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+
+        <!--==============================Content=================================-->
+
+
+                <div class="banner " style="margin: 5%">
+                    <div class="maxheight">
+                        <div class="banner_title">
+                            {{ setting.aboutus|safe }}
+                        </div>
+                    </div>
+                </div>
+
+
+
+{% endblock %}
